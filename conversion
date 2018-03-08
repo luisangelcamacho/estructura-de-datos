@@ -1,0 +1,64 @@
+conversion.h
+#pragma once
+class conversion
+{
+private:
+	int a,b,n,d,r,i,s;
+
+public:
+	conversion(void);
+	~conversion(void);
+
+int conversionn(int n, int b);
+
+};
+
+conversion.cpp
+#include "StdAfx.h"
+#include "math.h"
+#include "conversion.h"
+
+
+conversion::conversion(void)
+{b=1;
+}
+
+
+conversion::~conversion(void)
+{
+}
+
+int conversion::conversionn(int n,int b)
+	{
+	while(n>0)
+	{i=0;
+	s=0;
+		r=n%10;
+		n=n/10;
+		d=r*pow(b,i);
+		i++;
+		s=s+d;
+		return s;
+	}}
+  
+  ejemplo1.cpp
+  #include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+#include "conversion.h"
+
+using namespace std;
+
+int main()
+{	conversion conversion1,conversion2;
+	int a,b,n,d,r,i,s;
+	cout<<"valor de b";
+	cin>>b;
+	cout<<"valor de n";
+	cin>>n;
+	cout<<"la conversion de numeros es"<<conversion1.conversionn(n,b);
+
+
+}
+
