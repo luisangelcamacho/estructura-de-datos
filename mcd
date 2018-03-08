@@ -1,0 +1,73 @@
+mcd.h
+#pragma once
+class mcd
+{
+private:
+	int a,b,x,z,y,i;
+
+public:
+	mcd(void);
+	~mcd(void);
+
+	int minimos(int a, int b);
+};
+
+mcd.cpp
+#include "StdAfx.h"
+#include "mcd.h"
+
+mcd::mcd(void)
+{
+}
+
+
+mcd::~mcd(void)
+{
+}
+
+int mcd::minimos(int a, int b)
+{	int x,z,y=1,i=2;
+		if(a<b)
+		{
+			x=a;
+			z=b;
+		}
+		else 
+		{
+			x=b;
+			z=a;
+		}
+	do{
+		if(x%i==0 && z%i==0)
+		{
+			y=y*i;
+			x=x/i;
+			z=z/i;
+		}
+		else
+		{i++;}
+	   }
+	while(i<=x);
+	printf("el MCD es: ,&f",y);
+}
+
+minimo.cpp
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "mcd.h"
+
+using namespace std;
+
+int main()
+{
+	mcd mcd1;
+	int a,b,x,z,y,i;
+	cout<<"valor de a";
+	cin>>a;
+	cout<<"valor de b";
+	cin>>b;
+	cout<<"minimos comunes"<<mcd1.minimos(a,b)<<endl;
+	getch();
+}
+
