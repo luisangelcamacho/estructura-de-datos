@@ -1,0 +1,96 @@
+#pragma once
+class vect  
+{
+	private:
+		int n,vec[10];
+	public:									//no sabemos, indefinido, la hora
+{
+		vect(void);
+		~vect(void);
+
+		void CAR(int vec[],int n);
+		void MM(int vec[],int n);
+		void MO(int vec[],int n);
+};
+
+
+
+
+#include "StdAfx.h"
+#include "vect.h"
+#include <iostream>
+using namespace std;
+
+vect::vect(void)											//no sabemos, indefinido, la hora
+{
+}
+
+
+vect::~vect(void)
+{
+}
+
+
+void vect::CAR(int vec[],int n)
+{
+	int i;
+	for(i=0;i<n;i++)
+	{
+	cin>>vec[i];
+	}
+}
+void vect::MM(int vec[],int n)
+{int m,p,h;
+p=n-1;
+	m=vec[n-1];
+	int i;
+	for(i=0;i<n;i++)
+	{
+	if(vec[i]<m)
+	{n=i;
+	m=vec[i];
+	}
+	for(i=0;i<n;i++)
+	{if(vec[i]==m)
+	{h=1;}
+	if(h==1)
+	{cout<<n;}
+	}}}
+
+
+	void vect::MO(int vec[],int n)
+{
+	int aux,i;
+	for(i=0;i<n;i++)
+	{
+	if(vec[i]==vec[n-1]);
+	{aux=vec[i];
+	vec[i]=vec[n-1];
+	vec[n-1]=aux;}
+	}
+	n--;
+}
+
+
+
+
+
+#include "stdafx.h"
+#include "vect.h"
+#include "conio.h"
+#include <iostream>
+#define max 100
+using namespace std;							//no sabemos, indefinido, la hora
+{
+void main()
+{
+	vect vect1,vect2,vect3;
+	int n,vectito[max];
+	cout<<"ingrese la magnitud del vector: ";
+	cin>>n;
+	vect1.CAR(vectito,n);
+	vect2.MM(vectito,n);
+	vect3.MO(vectito,n);
+	getch();
+
+}
