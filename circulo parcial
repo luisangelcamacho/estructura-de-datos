@@ -1,0 +1,126 @@
+#pragma once
+class cir
+{
+private: 
+			float r, n;
+
+public:
+	cir(void);
+	~cir(void);
+
+	void AC(float r);
+	void PC(float r);
+	
+};
+
+
+
+
+#include "StdAfx.h"
+#include "cir.h"
+#include "iostream"
+#include "conio.h"
+
+using namespace std;
+
+
+cir::cir(void)
+{
+}
+
+
+cir::~cir(void)
+{
+}
+
+void cir::AC(float r){
+
+	float ar;
+
+
+	ar= (r*r)*3.1416;
+
+
+	cout<<"El area es: "<<ar<<endl;
+
+
+}
+
+
+
+void cir::PC(float r)
+{
+
+	float pe;
+
+	pe= 2*3.1416*r;
+
+	cout<<"El perimetro es: "<<pe<<endl;
+}
+
+
+
+
+#include "stdafx.h"
+#include "cir.h"
+#include "iostream"
+#include "conio.h"
+
+using namespace std;
+
+void main(){
+
+	int a;
+	float r;
+
+	cout<<"Ingrese Radio de su Circulo"<<endl;
+
+	cin>>r;
+
+	cir cir1;
+
+	do
+	
+	{
+
+	cout<<"MENU"<<endl;
+	cout<<"1.-Perimetro de un Circulo"<<endl;
+	cout<<"2.-Area de un Circulo"<<endl;
+	cout<<"0.-Salir"<<endl;
+
+	cout<<"Elija una Opcion"<<endl;
+
+	cin>>a;
+
+	switch(a)
+	{
+		
+	case 1:
+		
+		cir1.PC(r);
+	break;
+
+	case 2:
+		cir1.AC(r);
+
+	break;
+
+	case 3:
+			cout<<"bye"<<endl;
+
+		break;
+
+	default:
+
+			cout<<"Opcion no Valida, elija otra porfavor"<<endl;		
+
+		break;
+
+	
+	}
+
+}while(a!=3);
+
+
+	getch();
+}
