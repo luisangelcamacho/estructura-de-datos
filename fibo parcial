@@ -1,0 +1,80 @@
+#pragma once
+class fib
+{
+ private:
+				int vec[100];
+				int n;
+ public:
+	fib(void);
+	~fib(void);
+	void serie(int vec[],int n);
+
+
+};
+
+
+
+
+#include "StdAfx.h"
+#include "fib.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+fib::fib(void)
+{
+}
+
+
+fib::~fib(void)
+{
+}
+
+
+void fib::serie(int vec[],int n)
+
+{
+	int i;
+
+	
+
+	for(i=0;i<n;i++)
+	{
+		vec[0]=0;
+	vec[1]=1;
+		if(i>1)
+		{
+		vec[i]=vec[i-2]+vec[i-1];}
+	
+	cout<<vec[i]<<",";
+
+	}
+
+	getch();
+}
+
+
+
+
+
+#include "stdafx.h"
+#include "fib.h"
+#include "iostream"
+#include "conio.h"
+
+using namespace std;
+#define max 100
+void main(){
+int n;
+int vec[max];
+
+fib fib1;
+ cout<<"ingrese tamaño"<<endl;
+ cin>>n;
+
+
+ fib1.serie(vec,n);
+ getch();
+}
+
