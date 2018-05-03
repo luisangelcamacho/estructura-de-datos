@@ -1,0 +1,121 @@
+.h
+#pragma once
+#define s 20
+class colistas
+{
+private:
+	int frente;
+	int final;
+	int vc[s];
+public:
+	colistas(void);
+	~colistas(void);
+
+	bool insertar (int n);
+	bool eliminar (int &dato);
+	void mostrar();
+	bool vacio ();
+	bool lleno();
+}
+.cpp
+#include "StdAfx.h"
+#include <iostream>
+#include "colistas.h"
+;using namespace std;
+#define MAX 20
+colistas::colistas(void)
+{
+	frente=0;
+	final=-1;
+}
+
+
+colistas::~colistas(void)
+{
+}
+bool colistas::vacio (){
+		if (final<0)
+			{return true;
+} else 
+	{return false;
+}
+}
+bool colistas::lleno (){
+		if (final>=(MAX-1))
+			{
+				return true;
+} else 
+	{return false;
+}}
+bool colistas::insertar (int n){
+	if(colistas::lleno()==true){
+	cout<<"la cola se encuentra llena ";	
+	return false;
+	}else{
+	vc[frente]=n;
+	frente++;
+	return true;
+	}
+}
+bool colistas::eliminar(int &dato){
+	if(colistas::vacio()==false){
+		int i;
+		dato=vc[frente];
+		cout<<"el valor recuperado es : "<< dato<<endl;
+		for(i=0;i<=frente-1;i++)
+			vc[i]=vc[i+1];
+		final=final-1;
+		return true;
+	}else{
+		cout<<"cola vacia";
+		return false;
+	}
+}
+void colistas::mostrar(){
+	int i;
+	for(i=frente-1;i>=final+1;i--){
+		cout<<"i "<< vc[i] << " " ;
+	}
+}
+
+.cpp
+#include "stdafx.h"
+#include <conio.h>
+#include <iostream>
+#include "colistas.h"
+; using namespace std;
+
+void main (){
+	colistas COLAS;
+	int dato, op;
+	do {
+			cout<<"BIENVENIDO"<<endl;
+			cout<<"1.- insertar cola"<<endl;
+			cout<<"2.- eliminar cola"<<endl;
+			cout<<"3.- mostrar cola"<<endl;
+			cout<<"0.- salir"<<endl;
+			cout<<endl;
+			cout<<"elija una de las opciones"<<endl;
+			cin>>op;
+		switch (op){
+		case 1:
+			cout<<"ingrese un numero: ";
+			cin>>dato;
+			COLAS.insertar(dato);
+			break;
+		case 2:
+			if(COLAS.vacio()==true){
+				cout<<"el elemento recuperado es: "<<COLAS.eliminar(dato)<<endl;
+			}else{
+				cout<<"cola vacia";
+			}
+			break;
+		case 3:
+			COLAS.mostrar();
+			break;
+		
+		}
+	}while (op>0);
+	getch();
+
+}
