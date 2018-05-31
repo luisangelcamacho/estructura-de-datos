@@ -1,0 +1,51 @@
+#pragma once
+class digito
+{private:
+int n;
+int s;
+public:
+	digito(void);
+	~digito(void);
+	int sumadigito(int n);
+};
+
+#include "StdAfx.h"
+#include "digito.h"
+
+
+digito::digito(void)
+{n=10;
+}
+
+
+digito::~digito(void)
+{
+}
+ int digito::sumadigito (int n)
+ { int r,s;
+ s=0;
+ r=0;
+ while(n>0)
+ { r=n%10;
+ n=n/10;
+ s=s+r;
+ }
+ return (s);
+ }
+ 
+ // sumadedigitos.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "digito.h"
+using namespace std;
+void main ()
+{ digito digito1;
+int x;
+cout<< "ingrese el numero"<<endl;
+cin >> x;
+cout<<"la suma de digito es "<<digito1.sumadigito(x)<<endl;
+getch();
+}
