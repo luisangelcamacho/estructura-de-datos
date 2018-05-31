@@ -1,0 +1,112 @@
+#pragma once
+class intercalado
+{private:
+	int V[10],lim;
+public:
+	intercalado(void);
+	~intercalado(void);
+	int esprimo(int n);
+	int nprimo(int x );
+	void cargarvector(int V[],int lim);
+	void mostrarvector(int V[],int lim);
+};
+
+///////////////////////////////////////////////////
+#include "StdAfx.h"
+#include "intercalado.h"
+#include "iostream"
+using namespace std;
+
+
+intercalado::intercalado(void)
+{
+}
+
+
+intercalado::~intercalado(void)
+{
+}
+int intercalado::esprimo(int n)
+{int a;
+	if(n==1||n==2)
+	{	a=1;
+	}
+	else
+	{	for(int i=2;i<n/2;i++)
+			{	if(n%i==0)
+					{a=0;
+					}
+				else a=1;
+			}
+	}
+	return(a);
+}
+	
+	
+
+int intercalado::nprimo(int x)
+{	int i,s,b;
+	i=0;
+	s=1;
+	while(i!=x)
+	{	b=esprimo(s);
+		if(b==1)
+			{i++;
+			}
+		s++;
+	}
+	s--;
+return(s);
+}
+void intercalado::cargarvector(int V[],int lim)
+{	int i, primo=0;
+	i=0;
+	int par=2;
+	int impar=1;
+	int bandera=0;
+	while(i<lim)
+	{	if(bandera==0)
+		{	V[i]=nprimo(primo);
+			primo++;
+			bandera=1,
+			i++;
+		}
+		if(bandera==1)
+		{	V[i]=par;
+			par=par+2;
+			bandera=2;
+			i++;
+		}
+		if(bandera==2)
+		{	V[i]=impar;
+			impar=impar+2;
+			bandera=0;
+			i++;
+		}
+
+	}
+}
+
+void intercalado::mostrarvector(int V[],int lim)
+{for(int i=0;i<lim;i++)
+	{	cout<<"V["<<i<<"]="<<V[i]<<endl;
+	}
+}
+/////////////////////////////////////////////////////////
+// intercaladao.cpp: define el punto de entrada de la aplicación de consola.
+//
+
+#include "stdafx.h"
+#include "iostream"
+#include "conio.h"
+#include "intercalado.h"
+using namespace std;
+void main()
+{	intercalado intercalado1;
+	int lim,V[10];
+	cout<<"ingrese el numero de terminos"<<endl;
+	cin>>lim;
+	intercalado1.cargarvector(V,lim);
+	intercalado1.mostrarvector(V,lim);
+getch();
+}
