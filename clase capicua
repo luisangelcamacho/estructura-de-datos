@@ -1,0 +1,55 @@
+#pragma once
+class numero
+{private:
+int n;
+public:
+	numero(void);
+	~numero(void);
+	int numerocapicua(int n);
+};
+
+#include "stdafx.h"
+#include "numero.h"
+
+
+numero::numero(void)
+{ n=10;
+}
+
+
+numero::~numero(void)
+{
+}
+int numero::numerocapicua(int n)
+{	int r,in;
+	r=0;
+	in=0;
+	while(n>0)
+	{	r=n%10;
+		n=n/10;
+		in=in*10+r;
+	}
+	return(in);
+}
+
+// capicua.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "numero.h"
+using namespace std;
+void main ()
+{	numero numero1;
+	int x,c;
+	cout<< "ingrese el numero"<<endl;
+	cin >> x;
+	c=numero1.numerocapicua(x);
+	if (c==x)
+		cout<<"el numero es capicua"<<endl;
+	else
+		cout<<"el numero no es capicua"<<endl;
+	getch();
+	
+}
