@@ -1,0 +1,68 @@
+#pragma once
+class mcd
+{private:
+int a,b;
+public:
+	mcd(void);
+	~mcd(void);
+	void divisor(int x,int y);
+};
+
+////////////////////////////////////
+#include "StdAfx.h"
+#include "mcd.h"
+#include "iostream"
+using namespace std;
+
+mcd::mcd(void)
+{ a=0;
+  b=0;
+}
+
+
+mcd::~mcd(void)
+{
+}
+void mcd::divisor(int x,int y)
+{ 
+  do 
+  { b=y;
+	  y=x%y;
+    x=b;
+  }while(y>0);
+cout<<" MCD = "<<b;
+}
+
+/////////////////////////////////
+// mcd.cpp: define el punto de entrada de la aplicación de consola.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include "mcd.h"
+#include <iostream>
+void divisor(int x, int y);
+using namespace std;
+void main()
+{ mcd mcd1;
+ int a,b,x,y;
+ do{
+  cout<<" ingrese a "<<endl;
+  cin>> a;
+  }while(a<=0);
+  do{
+  cout<<" ingrese b "<<endl;
+  cin>> b;
+  while(b<=0);
+  if (a>b)
+  { x=a;
+    y=b;
+  }
+  else 
+  { x=b;
+    y=a;
+   }
+mcd1.divisor(x,y);
+
+getch();
+}
