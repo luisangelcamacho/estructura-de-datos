@@ -1,0 +1,70 @@
+#include "stdafx.h"
+#include "iostream"
+#include "conio.h"
+int leerx();
+void serien(int n);
+void abundante(int n);
+using namespace std;
+void main()
+{	int op,n;
+	do{
+		cout<<"   MENU  "<<endl;
+		cout<< " 1 serie "<<endl;
+		cout<< " 2 abundante "<< endl;
+		cout<< " 3 salir "<<endl;
+		cout<< "Ingrese la opcion: "<<endl;
+		cin>> op;
+	
+		switch(op)
+				{	case 1: n=leerx();
+							serien(n);
+					break;
+					case 2: cout<< " Ingrese el numero "<<endl;
+							cin>>n;
+							abundante(n);
+					break;
+					default: cout << " ERROR "<<endl ;
+				}
+		}while (op!=3);
+getch();
+}
+int leerx()
+{	int x;
+	do	{
+		cout<< " Ingrese el numero de terminos "<<endl;
+		cin>>x;
+		}while(x<=0);
+	return(x);
+}
+
+void serien(int n)
+{	int x,i;
+	i=0;
+	x=0;
+	do{	
+		x=x+3;
+		cout<<x;
+		i++;
+		}while(i<n);
+
+}
+void abundante(int n)
+{	int i,d,s;
+	s=0;
+	i=n-1;
+	do{	
+		if(n%i==0)
+			{s=s+i;
+
+			}
+	i--;
+
+
+		}while(i>0);
+	if(s>n)
+	{	cout<<" el numero es abudante "<<endl;
+	}
+	else 
+	{	cout<<" el numero no es abundante "<<endl;
+	}
+}
