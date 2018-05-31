@@ -1,0 +1,101 @@
+#pragma once
+class cuadratica
+{private: int a,b,c,x1,x2;
+public:
+	cuadratica(void);
+	~cuadratica(void);
+float determinante(float a,float b, float c);
+void  real(float a, float b,  float d);
+float unica(float a,float b);
+void imaginaria(float a, float b, float d);
+
+};
+
+///////////////////////////////////////////////////
+#include "StdAfx.h"
+#include "cuadratica.h"
+#include "math.h"
+#include <iostream>
+
+using namespace std;
+
+
+cuadratica::cuadratica(void)
+{	a=0;
+	b=0;
+	c=0;
+
+}
+
+
+cuadratica::~cuadratica(void)
+{
+}
+float cuadratica::determinante(float a,float b, float c)
+{	float d;
+	d=pow(b,2)-(4*a*c);
+	return(d);
+}
+void cuadratica:: real(float a, float b, float d)
+{	float x1,x2;
+	x1=(-b+sqrt(d))/(2*a);
+	x2=(-b-sqrt(d))/(2*a);
+	cout<<"x1= "<<x1<<""<<endl;
+	cout<<"x2= "<<x2<<""<<endl;
+
+}
+float cuadratica:: unica(float a,float b)
+{	float x1;
+	x1=-b/(2*a);
+	return (x1);
+}
+void cuadratica:: imaginaria(float a, float b, float d)
+{	float x1,x2;
+	x1=-b/(2*a);
+	x2=sqrt(-d)/(2*a);
+	cout <<"x1= "<<x1<<" + "<<x2<<" i"<<endl;
+	cout <<"x2= "<<x1<<" - "<<x2<<" i"<<endl;
+}
+///////////////////////////////////////////////////////////////////
+// cuadratica.cpp: define el punto de entrada de la aplicación de consola.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include "cuadratica.h"
+#include <iostream>
+float determinante(float a,float b, float c);
+void  real(float a, float b,float d);
+float unica(float a,float b);
+void imaginaria(float a, float b,float d);
+
+
+using namespace std;
+void main()
+{cuadratica cuadratica1;
+float a,b,c,d,b1;
+	cout << "Ingrese el valor de a: ";
+	cin >> a;
+	cout << "Igrese el valor de b: ";
+	cin >> b;
+	cout << "Ingrese el valor de c: ";
+	cin >> c;
+	d=cuadratica1.determinante(a,b,c);
+
+	if (d>0)
+	{ cuadratica1.real(a,b,d);
+	
+	}
+	else
+	{	if(d==0)
+		{
+			b1=cuadratica1.unica(a,b);
+			cout<<"x= "<<b1;
+		}
+	else
+	{cuadratica1.imaginaria(a,b,d);
+	
+	}
+	}
+getch();
+}
